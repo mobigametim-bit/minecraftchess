@@ -2,19 +2,18 @@
 
 Canonical Notion page: https://app.notion.com/p/3cb8c73f225281eeafbcf872e4fa9e39?pvs=204
 
-## UX contract
-The match does not navigate to a separate results screen. A panel appears over the final board position.
+## Playable Slice 1 UX contract
+A finished match keeps the final board visible and places a modal panel over it.
 
 ## States
-Victory, defeat, draw, and resignation outcome.
+Victory, defeat, draw, and resignation.
 
 ## Panel content
-- Result label.
+- Result title.
+- Reason (mate, stalemate, draw reason, resignation).
 - Emerald reward.
-- Play again action.
+- Play again action with the same difficulty.
 - Main menu action.
 
 ## Acceptance criteria
-- Overlay appears exactly once per terminal game.
-- Board remains visible underneath.
-- Reward shown matches economy calculation.
+The result callback is guarded so a rendered terminal state cannot award the same game twice.

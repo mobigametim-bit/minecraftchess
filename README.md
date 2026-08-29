@@ -4,26 +4,25 @@ HTML5 chess game with voxel/Minecraft-inspired pieces, a fast difficulty-selecti
 
 ## Project status
 
-Stage 0: technical foundation.
+Stage 0 is accepted in `main`. `develop` contains the next playable vertical slice: difficulty selection → full chess match against AI → result/reward overlay → rematch/menu.
 
 ## Branch policy
 
-- `main` contains only user-approved code.
-- `develop` contains the current feature implementation and fixes.
+- `main` contains only user-approved playable/stable code.
+- `develop` contains the current playable slice implementation and fixes.
 - GitHub Actions are intentionally **not used** for automated tests.
-- Verification is run locally before a feature is handed off for manual acceptance testing.
+- Verification is local before a playable checkpoint is handed off.
 
-## Feature workflow
+## Acceptance workflow
 
-1. Discuss feature UX.
-2. Approve UX.
-3. Synchronize the approved contract in Notion and `docs/`.
-4. Implement in `develop`.
-5. Run local checks.
-6. User tests the feature manually.
-7. Fix issues in `develop`.
-8. After explicit approval, merge accepted code into `main`.
-9. Synchronize final status/changelog in Notion and GitHub docs.
+1. Define/synchronize UX contracts.
+2. Implement in `develop`.
+3. Run local checks.
+4. Group technical subfeatures until the user has a meaningful playable checkpoint.
+5. Present the playable checkpoint, not code/technical-only states.
+6. Fix manual-test findings in `develop`.
+7. Merge to `main` only after explicit user approval.
+8. Synchronize final status in Notion and GitHub docs.
 
 ## Requirements
 
@@ -39,21 +38,12 @@ npm run dev
 
 ## Local verification
 
-Core quality gate:
-
 ```bash
 npm run verify
-```
-
-Full quality gate including Playwright browser smoke tests:
-
-```bash
 npm run verify:all
 ```
 
-`npm run test:e2e` is also safe to invoke directly on a clean checkout: it builds the app before starting Playwright.
-
-The first Playwright run may require installing the Chromium browser package locally with Playwright's standard browser-install command.
+`npm run test:e2e` builds before Playwright, so it is safe to invoke on a clean checkout after dependencies/browser binaries are installed.
 
 ## Project documentation
 

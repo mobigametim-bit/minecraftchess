@@ -2,11 +2,13 @@
 
 Canonical Notion page: https://app.notion.com/p/3cb8c73f22528196b898d83890a6326b?pvs=204
 
-## UX contract
-When a pawn reaches the promotion rank, show a compact chooser for queen, rook, bishop, and knight using the current visual set.
+## Playable Slice 1 UX contract
+When a White pawn reaches the promotion rank, the board pauses and opens a compact modal chooser for:
+- Queen;
+- Rook;
+- Bishop;
+- Knight.
 
-## Architecture
-Promotion is a chess-domain move requiring a UI choice; UI provides the selected piece type and the domain executes the move.
+The selected piece type is passed back to the chess domain as part of the legal move; the UI does not alter board state directly.
 
-## Acceptance criteria
-All four legal promotion choices work for the player and game state remains valid.
+Temporary standard chess glyphs are used until Feature 06 connects the voxel/Minecraft visual set.
