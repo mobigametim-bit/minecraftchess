@@ -25,6 +25,11 @@ Stage 0: technical foundation.
 8. After explicit approval, merge accepted code into `main`.
 9. Synchronize final status/changelog in Notion and GitHub docs.
 
+## Requirements
+
+- Node.js `^20.19.0 || >=22.12.0`
+- npm
+
 ## Local development
 
 ```bash
@@ -34,13 +39,19 @@ npm run dev
 
 ## Local verification
 
+Core quality gate:
+
 ```bash
-npm run typecheck
-npm run lint
-npm run test
-npm run build
-npm run test:e2e
+npm run verify
 ```
+
+Full quality gate including Playwright browser smoke tests:
+
+```bash
+npm run verify:all
+```
+
+`npm run test:e2e` is also safe to invoke directly on a clean checkout: it builds the app before starting Playwright.
 
 The first Playwright run may require installing the Chromium browser package locally with Playwright's standard browser-install command.
 
