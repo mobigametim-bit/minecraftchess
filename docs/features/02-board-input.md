@@ -2,19 +2,18 @@
 
 Canonical Notion page: https://app.notion.com/p/3cb8c73f225281a89a0ada756922d193?pvs=204
 
-## UX contract
-- Standard 8×8 board.
-- Player controls white in MVP.
-- Click/tap a piece to select it.
+## Playable Slice 1 UX contract
+- Standard 8×8 board, player as White.
+- Click/tap a player piece to select it.
 - Legal destinations are highlighted.
-- Click/tap a legal destination to move.
-- Selected square and last move are visually distinct.
-- Input is locked while AI is making its move.
+- Quiet moves use destination dots; captures use a target ring.
+- Selected square and last move are highlighted.
+- Clicking another White piece changes selection.
+- Input is locked while the AI move is being processed.
+- Board coordinates are visible directly on edge squares.
 
 ## Architecture
-The board is a view of game state. Legal move calculation comes from the chess domain layer.
+The board renders chess-domain state. `chess.js` owns legality; the React board cannot manufacture illegal moves.
 
-## Acceptance criteria
-- Illegal moves cannot be performed.
-- Captures and normal moves update state consistently.
-- Mouse and touch interaction both work.
+## Acceptance checkpoint
+Mouse/touch selection, normal moves, captures, castling, en passant, and promotion paths are tested through the playable slice.

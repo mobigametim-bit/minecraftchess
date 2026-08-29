@@ -6,7 +6,7 @@ Canonical Notion page: https://app.notion.com/p/3cb8c73f225281beacabfdb55cdbe60d
 Create the technical foundation before implementing player-facing features.
 
 ## Scope
-- Create `develop` from approved `main`.
+- `develop` branch from approved `main`.
 - Vite + React + TypeScript.
 - Baseline app-state shell: `MAIN_MENU`, `GAME`, `RESULT`.
 - ESLint, TypeScript checks, Vitest, Playwright local-only testing.
@@ -16,9 +16,9 @@ Create the technical foundation before implementing player-facing features.
 - Explicitly no GitHub Actions for automated tests.
 - Documentation mirror under `docs/`.
 
-## Acceptance criteria
-- `npm install` succeeds in a network-enabled development environment.
-- `npm run typecheck`, `npm run lint`, `npm run test`, and `npm run build` succeed locally.
-- The application opens with the Stage 0 shell.
-- No player-facing feature UX beyond placeholders is treated as approved implementation.
-- Notion and GitHub documentation agree.
+## Status
+**Accepted and merged to `main` on 2026-08-29.**
+
+Approved merge commit: `6c5f95a6d50d28a939e2383c9b047ec3e957f5af`.
+
+The development branch was fast-forwarded to the accepted merge commit before Playable Slice 1 started.

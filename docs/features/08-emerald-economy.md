@@ -4,15 +4,16 @@ Canonical Notion page: https://app.notion.com/p/3cb8c73f22528186846ff16ec25a2e7c
 
 ## Reward rule
 - Win: full configured difficulty reward.
-- Draw/loss/resignation: one fifth of the configured win reward.
+- Draw/loss/resignation: exactly one fifth of the configured win reward.
+
+## Playable Slice 1 values
+`5/1`, `10/2`, `20/4`, `40/8`, `80/16` from Новичок through Эксперт.
 
 ## Architecture
-`economy/` owns reward calculation and wallet operations. `storage/` persists wallet state. UI only displays derived values/results.
+- `economy/` owns reward calculation.
+- `storage/` owns persistence.
+- MVP storage uses namespaced `localStorage` behind the storage module.
+- React displays balances but does not calculate reward policy.
 
 ## Safety
-A completed game must not be rewardable twice through re-rendering, overlay reopening, refresh flows, or navigation.
-
-## Acceptance criteria
-- Balance persists after reload.
-- Exactly one reward transaction is created per game.
-- Menu balance updates after returning from a match.
+The App-level finish lock prevents repeated reward application from duplicate terminal notifications or re-renders.

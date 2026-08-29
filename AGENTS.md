@@ -6,9 +6,10 @@ Minecraftchess is a small HTML5 chess game. Keep the UX intentionally simple: di
 ## Required development workflow
 - `main` is approved/stable only.
 - `develop` is the active development branch.
-- Discuss and approve each feature UX before implementing that feature.
-- Do not implement future player-facing feature UX speculatively.
-- User performs manual acceptance testing before a feature is merged to `main`.
+- Define and synchronize feature UX before implementation.
+- Technical subfeatures may be grouped into a playable vertical slice when separate review would produce non-playable checkpoints.
+- Present only playable/visually testable checkpoints to the user for acceptance; do not surface code or technical-only intermediate states unless explicitly requested.
+- User performs manual acceptance testing before a playable slice is merged to `main`.
 
 ## GitHub Actions policy
 Do not add or use GitHub Actions for automated testing or CI in this repository. Do not create `.github/workflows/*` for tests/builds. Run checks locally.
